@@ -51,6 +51,7 @@ body {
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.7;
+  hyphens: none;           /* jamais de mot coupé avec un tiret en fin de ligne */
 }
 
 img { max-width: 100%; display: block; }
@@ -714,19 +715,65 @@ main > .slider + section {
 }
 
 /* ---------- Contact ---------- */
-.contact-info { list-style: none; padding: 0; margin: 0; }
-.contact-info li { margin-bottom: 1.6rem; }
+.contact-opening { max-width: 760px; margin: 0 auto 100px; }
+.contact-opening .cta-text { margin: 36px auto 0; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-info { list-style: none; padding: 0; margin: 0 0 60px; }
+.contact-info li { margin-bottom: 2.4rem; }
+.contact-info .pres-num { margin-bottom: 10px; }
 .contact-info strong {
   display: block;
   font-family: var(--font-title);
   font-weight: 400;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: .15em;
+  letter-spacing: .1em;
   color: var(--olive);
+  margin-bottom: 4px;
+}
+.contact-info a,
+.contact-info span:not(.pres-num) { color: #4a4a42; font-size: 1.05rem; }
+.contact-info a:hover { color: var(--gold); }
+
+.contact-portrait { margin: 0; max-width: 260px; }
+.contact-portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(41, 51, 47, .15);
+}
+.contact-portrait figcaption {
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--brown);
+}
+.contact-portrait small {
+  display: block;
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  color: var(--olive-light);
 }
 
-.form { display: grid; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+/* Formulaire dans un cadre fin, champs soulignés */
+.contact-form {
+  border: 1px solid var(--line);
+  padding: 70px 70px 50px;
+}
+.form { display: grid; gap: 34px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
 .form label {
   display: block;
   font-family: var(--font-accent);
@@ -734,20 +781,32 @@ main > .slider + section {
   text-transform: uppercase;
   letter-spacing: .2em;
   color: var(--olive);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .form input,
 .form textarea {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid rgba(123, 119, 100, .35);
-  background: var(--white);
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(123, 119, 100, .4);
+  border-radius: 0;
+  background: transparent;
   font: inherit;
   color: var(--dark);
+  transition: border-color .3s;
 }
 .form input:focus,
-.form textarea:focus { outline: none; border-color: var(--olive); }
-.form textarea { min-height: 180px; resize: vertical; }
+.form textarea:focus { outline: none; border-bottom-color: var(--gold); }
+.form textarea { min-height: 160px; resize: vertical; }
+.form .btn-gold { background: transparent; cursor: pointer; }
+
+.contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.contact-submit img { width: 90px; height: auto; }
 
 /* ---------- Pied de page ---------- */
 .site-footer {
@@ -780,12 +839,62 @@ main > .slider + section {
   margin-top: 50px;
   padding-top: 20px;
   border-top: 1px solid rgba(123, 119, 100, .2);
-  display: flex;
-  justify-content: space-between;
+  /* © à gauche, crédit au centre, mentions à droite */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   gap: 16px;
   opacity: .7;
   font-size: .8rem;
 }
+
+/* ---------- Page À propos : bloc présentation ---------- */
+.bio {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+.bio-text {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  border: 1px solid var(--line);
+  padding: 90px calc(340px + 60px) 70px 80px;
+  color: var(--olive);
+}
+.bio-text h1 {
+  font-size: clamp(2rem, calc(3vw / var(--zoom)), 2.6rem);
+  text-transform: none;
+  letter-spacing: .01em;
+  margin-bottom: 1em;
+}
+.bio-text p {
+  text-align: justify;
+  line-height: 1.9;
+  margin-bottom: .6em;
+}
+.bio-logo {
+  width: 110px;
+  height: auto;
+  margin: 40px 0 0 auto;
+}
+.bio-photo {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  margin: 0 -60px -60px 0;
+  justify-self: end;
+  box-shadow: 0 20px 40px rgba(41, 51, 47, .25);
+}
+
+.footer-bottom > :last-child { justify-self: end; }
+
+/* Crédit agence, au centre de la dernière ligne */
+.footer-credit { text-align: center; }
+.footer-credit a { color: var(--olive); letter-spacing: .08em; }
+.footer-credit a:hover { color: var(--gold); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
@@ -821,6 +930,14 @@ main > .slider + section {
   .pres-block,
   .pres-block--reverse { grid-template-columns: 1fr; gap: 50px; }
   .pres-block--reverse .framed { order: 0; }
+  .bio { grid-template-columns: 1fr; margin-bottom: 0; }
+  .contact-opening { margin-bottom: 60px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .contact-side { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .contact-info { margin: 0; }
+  .contact-form { padding: 44px 28px 34px; }
+  .bio-text { grid-column: 1; padding: 50px 28px 40px; }
+  .bio-photo { grid-column: 1; grid-row: 2; max-width: 340px; margin: -20px auto 0; justify-self: center; }
   .pres-block--ruled { padding-top: 60px; }
   .pres-quote { padding: 60px 28px 44px; outline-offset: 6px; }
   .compare { grid-template-columns: 1fr; gap: 50px; width: 100%; margin-left: 0; transform: none; }
@@ -842,6 +959,8 @@ main > .slider + section {
   .logo { font-size: 1.2rem; }
   .site-header .logo img { height: 52px; }
   .form-row,
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; }
+  .footer-grid,
+  .contact-side { grid-template-columns: 1fr; }
+  .footer-bottom { grid-template-columns: 1fr; justify-items: start; }
+  .footer-bottom > :last-child { justify-self: start; }
 }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Studio Témoin</title>
-  <meta name="description" content="[À compléter]">
+  <meta name="description" content="Contactez Studio Témoin pour la création de votre appartement témoin meublé et décoré, de Paris au Golfe de Saint-Tropez.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Questrial&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -36,52 +36,80 @@
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero hero--small">
+    <!-- OUVERTURE -->
+    <section class="section contact">
       <div class="container">
-        <span class="eyebrow">Contact</span>
-        <h1>[Titre]</h1>
-        <p class="placeholder">[Phrase d'introduction]</p>
-      </div>
-    </section>
 
-    <!-- COORDONNÉES + FORMULAIRE -->
-    <section class="section">
-      <div class="container split" style="align-items:start">
-        <div>
-          <h2>Coordonnées</h2>
-          <ul class="contact-info">
-            <li><strong>Email</strong><a href="mailto:contact@exemple.fr">[email]</a></li>
-            <li><strong>Téléphone</strong><a href="tel:+33600000000">[téléphone]</a></li>
-            <li><strong>Adresse</strong><span class="placeholder">[adresse]</span></li>
-            <li><strong>Horaires</strong><span class="placeholder">[horaires]</span></li>
-          </ul>
+        <header class="pres-opening contact-opening">
+          <span class="eyebrow">Contact</span>
+          <p class="pres-tagline">Parlons de votre programme.</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="cta-text">Un projet d’appartement témoin, une question sur notre accompagnement ? Laissez-nous quelques mots, nous revenons vers vous rapidement pour imaginer ensemble l’intérieur qui séduira vos futurs acquéreurs.</p>
+        </header>
+
+        <!-- COORDONNÉES + FORMULAIRE -->
+        <div class="contact-grid">
+          <aside class="contact-side">
+            <ul class="contact-info">
+              <li>
+                <span class="pres-num">01</span>
+                <strong>Email</strong>
+                <a href="mailto:contact@exemple.fr">[email]</a>
+              </li>
+              <li>
+                <span class="pres-num">02</span>
+                <strong>Téléphone</strong>
+                <a href="tel:+33600000000">[téléphone]</a>
+              </li>
+              <li>
+                <span class="pres-num">03</span>
+                <strong>Zone d’intervention</strong>
+                <span>De Paris au Golfe de Saint-Tropez</span>
+              </li>
+            </ul>
+            <figure class="contact-portrait">
+              <img src="images/laure-mora.jpg" alt="Portrait de Laure Mora" width="534" height="806" loading="lazy">
+              <figcaption>Laure Mora<small>Fondatrice de Studio Témoin</small></figcaption>
+            </figure>
+          </aside>
+
+          <!-- Formulaire : l'envoi est à brancher (Formspree, Netlify Forms…) -->
+          <form class="form contact-form" action="#" method="post">
+            <div class="form-row">
+              <div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="company">Société</label>
+                <input type="text" id="company" name="company" autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div>
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+              </div>
+            </div>
+            <div>
+              <label for="program">Programme / ville</label>
+              <input type="text" id="program" name="program">
+            </div>
+            <div>
+              <label for="message">Votre projet</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="contact-submit">
+              <button type="submit" class="btn-gold">Envoyer</button>
+              <img src="images/logo-monogramme.png" alt="" width="300" height="256">
+            </div>
+          </form>
         </div>
 
-        <!-- Formulaire : l'envoi est à brancher (Formspree, Netlify Forms…) -->
-        <form class="form" action="#" method="post">
-          <div class="form-row">
-            <div>
-              <label for="name">Nom</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-          </div>
-          <div>
-            <label for="subject">Objet</label>
-            <input type="text" id="subject" name="subject">
-          </div>
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <div>
-            <button type="submit" class="btn">Envoyer</button>
-          </div>
-        </form>
       </div>
     </section>
   </main>
@@ -119,6 +147,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span id="year"></span> Studio Témoin — Tous droits réservés</span>
+        <span class="footer-credit">Site fait par <a href="https://hosa-group.fr/" target="_blank" rel="noopener">HOSA GROUP</a></span>
         <a href="#">Mentions légales</a>
       </div>
     </div>
