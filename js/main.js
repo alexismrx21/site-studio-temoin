@@ -14,7 +14,7 @@ if (toggle && nav) {
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-// Carrousel : fondu enchaîné toutes les 4 secondes
+// Carrousel : fondu enchaîné toutes les 3 secondes
 const slides = document.querySelectorAll('.slide');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -24,7 +24,7 @@ if (slides.length > 1 && !reduceMotion) {
     slides[current].classList.remove('is-active');
     current = (current + 1) % slides.length;
     slides[current].classList.add('is-active');
-  }, 4000);
+  }, 3000);
 }
 
 // Onglets (Méthode 1 / Méthode 2)
